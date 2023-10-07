@@ -18,6 +18,22 @@ def read_settings():
 def read_character():
     configFilePath = r'./character.cfg'
     configParser.read(configFilePath)
-    settings_options = dict(configParser.items('Settings'))
+    character_options = dict(configParser.items('character options'))
+    character_colours = dict(configParser.items('colours'))
 
-read_settings()
+    # Unfinished
+
+
+def read_save():
+    configFilePath = r'./save.cfg'
+    configParser.read(configFilePath)
+    game_options = dict(configParser.items('Options'))
+    game_progress = dict(configParser.items('Progress'))
+
+    DIFFICULTY = game_options['difficulty']
+    #we could use this to determine the speed the player moves at (faster being more difficult) and other things relating to the difficulty
+
+    STEPS = game_progress['steps']
+    MINIGAMES_CLEARED = game_progress['minigames_cleared']
+
+    return DIFFICULTY, int(STEPS), int(MINIGAMES_CLEARED)
