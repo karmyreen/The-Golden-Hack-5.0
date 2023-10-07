@@ -20,8 +20,10 @@ content = response.split(":")[2].strip()[1:-2]
 # Split the content into a list of strings based on the \n character
 tips = content.split("\\n")
 
-# Extract the points from each string using a list comprehension
-points = [tip.split(".")[0] for tip in tips]
+# Extract the points and tips from each string using a list comprehension
+points_and_tips = [tip.strip() for tip in tips if tip]
 
-# Print the points
-print(points)
+# Print the points and tips
+for point_and_tip in points_and_tips:
+    point, tip = point_and_tip.split(".", 1)
+    print(f"{point.strip()}. {tip.strip()}")
