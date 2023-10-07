@@ -1,6 +1,7 @@
 import pygame, sys
 from loader import *
 from runner import Runner
+from ai import *
 
 WIDTH, HEIGHT, FPS = read_settings()
 
