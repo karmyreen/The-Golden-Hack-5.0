@@ -1,7 +1,9 @@
 import pygame, sys
 from loader import *
+from levels import Level
 
 WIDTH, HEIGHT, FPS = read_settings()
+
 class Game():
     def __init__(self):
         
@@ -9,7 +11,9 @@ class Game():
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         pygame.display.set_caption('Hygiene Hero')
         self.clock = pygame.time.Clock()
-    
+
+        self.level = Level()
+
 
     def run(self):
 
@@ -21,6 +25,8 @@ class Game():
                 
                     pygame.quit()
                     sys.exit()
+
+            self.level.run()
 
             pygame.display.update()
             self.clock.tick(FPS)
