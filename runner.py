@@ -24,7 +24,7 @@ class Runner(pygame.sprite.Sprite):
         self.image = self.frames[self.frame_index]
         self.pos = (250,750)
         self.rect = self.image.get_rect(center = self.pos)
-        self.key_pressed = True
+        self.key_pressed = False
 
     def curr_frame(self):
         self.frame_index += 0.25
@@ -36,26 +36,32 @@ class Runner(pygame.sprite.Sprite):
     def input(self):
         keys = pygame.key.get_pressed()
 
-        if keys[pygame.K_a] or keys[pygame.K_LEFT]:
-            if self.pos == (250,750):
-                self.pos = (84,750)
+        if not self.key_pressed:
+            if keys[pygame.K_a] or keys[pygame.K_LEFT]:
+                if self.pos == (250,750):
+                    self.pos = (84,750)
 
-            elif self.pos == (84,750):
-                self.pos = (84,750)
+                elif self.pos == (84,750):
+                    self.pos = (84,750)
+                
+                elif self.pos == (417,750):
+                    self.pos = (250,750)
             
-            elif self.pos == (417,750):
-                self.pos = (250,750)
+                self.key_pressed = True
+
+            elif keys[pygame.K_d] or keys[pygame.K_RIGHT]:
+                if self.pos == (250,750):
+                    self.pos = (417,750)
+
+                elif self.pos == (417,750):
+                    self.pos = (417,750)
+                
+                elif self.pos == (84,750):
+                    self.pos = (250,750)
+
+                self.key_pressed = True
+
         
-        elif keys[pygame.K_d] or keys[pygame.K_RIGHT]:
-            if self.pos == (250,750):
-                self.pos = (417,750)
-
-            elif self.pos == (417,750):
-                self.pos = (417,750)
-            
-            elif self.pos == (84,750):
-                self.pos = (250,750)
-
     def update(self):
         self.input()
         self.curr_frame()
