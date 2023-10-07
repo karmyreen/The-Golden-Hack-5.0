@@ -1,11 +1,12 @@
 import pygame, sys
-from settings import *
+from loader import *
 
-class Game:
+WIDTH, HEIGHT, FPS = read_settings()
+class Game():
     def __init__(self):
-
+        
         pygame.init()
-        self.screen = pygame.display.set_mode((WIDTH,HEIGHT))
+        self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         pygame.display.set_caption('Hygiene Hero')
         self.clock = pygame.time.Clock()
     
