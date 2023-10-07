@@ -24,6 +24,7 @@ class Runner(pygame.sprite.Sprite):
         self.image = self.frames[self.frame_index]
         self.pos = (250,750)
         self.rect = self.image.get_rect(center = self.pos)
+        self.key_pressed = True
 
     def curr_frame(self):
         self.frame_index += 0.25

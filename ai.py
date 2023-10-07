@@ -31,13 +31,13 @@ def generate_ai(role, content):
 
   # Print the points and tips
   final_pt1 = (point1 + "." + tip1)
-  print(final_pt1)
+  #print(final_pt1)
   final_pt2 = (point2 + "." + tip2)
-  print(final_pt2)
+  #print(final_pt2)
   final_pt3 = (point3 + "." + tip3)
-  print(final_pt3)
+  #print(final_pt3)
 
   return final_pt1, final_pt2, final_pt3
 
-ai_example = generate_ai("You are a video game character giving tips on how to brush your teeth effectively.", "Give the user 3 short tips in point form on how to brush their teeth more effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
-print(ai_example)
+toothbrush_example1, toothbrush_example2, toothbrush_example3 = generate_ai("You are a video game character giving tips on how to brush your teeth effectively.", "Give the user 3 short tips in point form on how to brush their teeth more effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
+print(toothbrush_example1 + "\n" + toothbrush_example2 + "\n" + toothbrush_example3)
