@@ -13,7 +13,7 @@ completion = openai.ChatCompletion.create(
   ]
 )
 
-response = completion.choices[0].text
+response = completion.choices[0].message
 response = response.replace('\n', '')  # Remove the \n characters
 tips = response.split('.')  # Split the response into a list of strings based on the . character
 tip1, tip2, tip3 = [tip.strip() for tip in tips if tip]  # Remove leading/trailing whitespace and assign to variables
