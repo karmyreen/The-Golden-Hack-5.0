@@ -21,11 +21,13 @@ class Runner(pygame.sprite.Sprite):
         self.frames = [frame1,frame2,frame3,frame4]
         self.frame_index = 0
 
+        self.image = self.frames[self.frame_index]
         self.pos = (250,750)
+        self.rect = self.image.get_rect(center = self.pos)
 
     def curr_frame(self):
         self.frame_index += 0.25
-        if self.frame_index >= len(self.frame_index):
+        if self.frame_index >= len(self.frames):
             self.frame_index = 0
         self.image = self.frames[int(self.frame_index)]
         self.rect = self.image.get_rect(center = self.pos)
@@ -33,13 +35,26 @@ class Runner(pygame.sprite.Sprite):
     def input(self):
         keys = pygame.key.get_pressed()
 
-        if keys[pygame.K_a] or keys[pygame._Left]:
+        if keys[pygame.K_a] or keys[pygame.K_LEFT]:
             if self.pos == (250,750):
                 self.pos = (84,750)
 
-            if self.pos == (84,750):
-                self.pos = self.pos
+            elif self.pos == (84,750):
+                self.pos = (84,750)
             
-            if self.pos == (417,)
+            elif self.pos == (417,750):
+                self.pos = (250,750)
         
-        
+        elif keys[pygame.K_d] or keys[pygame.K_RIGHT]:
+            if self.pos == (250,750):
+                self.pos = (417,750)
+
+            elif self.pos == (417,750):
+                self.pos = (417,750)
+            
+            elif self.pos == (84,750):
+                self.pos = (250,750)
+
+    def update(self):
+        self.input()
+        self.curr_frame()

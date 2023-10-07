@@ -1,6 +1,6 @@
 import pygame, sys
 from loader import *
-
+from runner import Runner
 
 WIDTH, HEIGHT, FPS = read_settings()
 
@@ -17,6 +17,9 @@ def import_assets():
     
 import_assets()
 
+runner = pygame.sprite.GroupSingle()
+runner.add(Runner())
+
 while True:
 
     screen.blit(background,(0,0))
@@ -26,6 +29,7 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-
+    runner.draw(screen)
+    runner.update()
     pygame.display.update()
     clock.tick(60)
