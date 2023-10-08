@@ -5,13 +5,38 @@ from ai import generate_ai
 
 from main import *
 
+# Define the minigames
+MINIGAMES = [
+    "toothbrushing",
+    "laundry",
+    "deodorant",
+]
+
+# Keep track of the previously selected minigames
+previously_selected = []
+
 def selectMinigame():
-    minigame_choice = random.randint(1,3)
-    if minigame_choice == 1:
+    # Get a list of the remaining minigames
+    remaining = [m for m in MINIGAMES if m not in previously_selected]
+    
+    # If all minigames have been played, reset the previously selected list
+    if not remaining:
+        previously_selected.clear()
+        remaining = MINIGAMES
+    
+    # Select a random minigame from the remaining options
+    minigame_choice = random.choice(remaining)
+    
+    # Add the selected minigame to the previously selected list
+    previously_selected.append(minigame_choice)
+
+    if minigame_choice == "toothbrushing":
         brushingTeeth()
-    if minigame_choice == 2:
+
+    elif minigame_choice == "laundry":
         doingLaundry()
-    if minigame_choice == 3:
+
+    elif minigame_choice == "deodorant":
         usingDeoderant()
 
 bg = pygame.image.load("visuals/scary mouth.png").convert_alpha()
