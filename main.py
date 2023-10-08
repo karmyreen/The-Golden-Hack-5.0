@@ -3,6 +3,7 @@ from loader import *
 from runner import Runner
 from enemies import Germs
 from random import randint, choice
+from quiz import *
 
 WIDTH, HEIGHT, FPS = read_settings()
 
@@ -11,7 +12,7 @@ pygame.init()
 screen = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_caption("Hygiene Hero")
 clock = pygame.time.Clock()
-
+game_state = "running"
 #defining the background
 def import_assets():
     global background
@@ -38,25 +39,32 @@ while True:
             pygame.quit()
             sys.exit()
         
-        if event.type == timer:
-            germs_monsters.add(Germs(choice(["yellow","yellow","red"])))
+        if game_state == "running":
+            if event.type == timer:
+                germs_monsters.add(Germs(choice(["yellow","yellow","red"])))
 
-    for i in range(0,3):
-        screen.blit(background,(0,i * -835 + scroll))
+    if game_state == "running":
+        for i in range(0,3):
+            screen.blit(background,(0,i * -835 + scroll))
 
-    scroll += 10
-    if scroll > 835:
-        scroll = 0
+        scroll += 10
+        if scroll > 835:
+            scroll = 0
 
-    runner.draw(screen)
-    runner.update()
+        runner.draw(screen)
+        runner.update()
 
-    germs_monsters.draw(screen)
-    germs_monsters.update()
+        germs_monsters.draw(screen)
+        germs_monsters.update()
 
-    if pygame.sprite.spritecollide(runner.sprite,germs_monsters,False):
-        pygame.quit()
-        sys.exit()
+        if pygame.sprite.spritecollide(runner.sprite,germs_monsters,False):
+            game_state = "quiz"
+
+            
+
+
+    if game_state == "quiz":
+        screen.fill((0,0,255))
 
     pygame.display.flip()
     pygame.display.update()
