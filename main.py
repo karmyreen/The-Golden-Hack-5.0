@@ -3,7 +3,7 @@ from loader import *
 from runner import Runner
 from enemies import Germs
 from random import randint, choice
-from quiz import *
+from quiz import random_toothbrush_tip, random_laundry_tip, random_handwashing_tip, random_false_toothbrush_tip, random_false_laundry_tip, random_false_handwashing_tip
 
 WIDTH, HEIGHT, FPS = read_settings()
 
@@ -12,7 +12,7 @@ pygame.init()
 screen = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_caption("Hygiene Hero")
 clock = pygame.time.Clock()
-game_state = "running"
+game_state = "title"
 #defining the background
 def import_assets():
     global background

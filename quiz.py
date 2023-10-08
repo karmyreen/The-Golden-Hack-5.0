@@ -24,11 +24,11 @@ false_handwashing_tips = [false_handwashing_tip1, false_handwashing_tip2, false_
 
 random_toothbrush_tip = random.choice(toothbrush_tips)
 random_laundry_tip = random.choice(laundry_tips)
-random_deoderant_tip = random.choice(handwashing_tips)
+random_handwashing_tip = random.choice(handwashing_tips)
 
 random_false_toothbrush_tip = random.choice(false_toothbrush_tips)
-random_laundry_tip = random.choice(false_laundry_tips)
-random_deoderant_tip = random.choice(false_handwashing_tips)
+random_false_laundry_tip = random.choice(false_laundry_tips)
+random_false_handwashing_tip = random.choice(false_handwashing_tips)
 
 
 
