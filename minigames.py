@@ -55,6 +55,8 @@ score = 0
 
 
 def brushingTeeth():
+    #START GENERATING AI AT THE START SO IT IS DONE BY THE TIME THE MINIGAME ENDS
+    toothbrush_example1, toothbrush_example2, toothbrush_example3 = generate_ai("You are a video game character giving tips on how to brush your teeth effectively.", "Give the user 3 short tips in point form on how to brush their teeth effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
     screen.blit(bg, (0,0))
     rect = germs.get_rect(center = pos1)
     rec2 = germs.get_rect(center = pos2)
@@ -75,23 +77,23 @@ def brushingTeeth():
                 score += 1 
 
 
-    #WHEN MINIGAME OVER
-    toothbrush_example1, toothbrush_example2, toothbrush_example3 = generate_ai("You are a video game character giving tips on how to brush your teeth effectively.", "Give the user 3 short tips in point form on how to brush their teeth effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
-
     
 def doingLaundry():
+    #START GENERATING AI AT THE START SO IT IS DONE BY THE TIME THE MINIGAME ENDS
+    laundry_example1, laundry_example2, laundry_example3 = generate_ai("You are a video game character giving tips on how to do laundry effectively.", "Give the user 3 short tips in point form on how to do their laundry more effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
     ## CODE HERE
 
 
 
 
     #WHEN MINIGAME OVER
-    laundry_example1, laundry_example2, laundry_example3 = generate_ai("You are a video game character giving tips on how to do laundry effectively.", "Give the user 3 short tips in point form on how to do their laundry more effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
+    
 
 def usingDeoderant():
+    #START GENERATING AI AT THE START SO IT IS DONE BY THE TIME THE MINIGAME ENDS
+    deoderant_example1, deoderant_example2, deoderant_example3 = generate_ai("You are a video game character giving tips on how to use deoderant effectively.", "Give the user 3 short tips in point form on how to use deoderant effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
     ## CODE HERE
 
 
     
     #WHEN MINIGAME OVER
-    deoderant_example1, deoderant_example2, deoderant_example3 = generate_ai("You are a video game character giving tips on how to use deoderant effectively.", "Give the user 3 short tips in point form on how to use deoderant effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
