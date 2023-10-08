@@ -22,7 +22,7 @@ germs = pygame.image.load("visuals/germs.png").conver_alpha()
 pos1 = (94,382)
 pos2 = (313, 287)
 pos3 = (180,480)
-
+score = 0 
 
 
 
@@ -30,6 +30,8 @@ pos3 = (180,480)
 
 
 def brushingTeeth():
+
+
     
     
     screen.blit(bg, (0,0))
@@ -39,15 +41,21 @@ def brushingTeeth():
     rec2 = germs.get_rect(center = pos2)
     rec3 = germs.get_rect(center = pos3)
 
-    if(event.type == pygame.MOUSEMOTION):
-        x, y = event.pos
-        
-        if( (pos1-40 <= x <= pos1) and ( pos1+40 <= y <= pos1 )):
-            pos1 = -100
-        if( (pos2-40 <= x <= pos2) and ( pos2+40 <= y <= pos2 )):
-            pos2 = -100
-        if( (pos3-40 <= x <= pos3) and ( pos3+40 <= y <= pos3 )):
-            pos3 = -100
+    while (score != 3 ):
+
+
+        if(event.type == pygame.MOUSEMOTION):
+            x, y = event.pos
+            
+            if( (pos1-40 <= x <= pos1) and ( pos1+40 <= y <= pos1 )):
+                pos1 = -100
+                score += 1 
+            if( (pos2-40 <= x <= pos2) and ( pos2+40 <= y <= pos2 )):
+                pos2 = -100
+                score += 1 
+            if( (pos3-40 <= x <= pos3) and ( pos3+40 <= y <= pos3 )):
+                pos3 = -100
+                score += 1 
 
 
     #WHEN MINIGAME OVER
