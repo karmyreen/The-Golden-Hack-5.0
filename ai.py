@@ -40,8 +40,8 @@ def generate_ai(role, content):
 
   return final_pt1, final_pt2, final_pt3
 
-toothbrush_example1, toothbrush_example2, toothbrush_example3 = generate_ai("You are a video game character giving tips on how to brush your teeth effectively.", "Give the user 3 short tips in point form on how to brush their teeth effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
-print(toothbrush_example1 + "\n" + toothbrush_example2 + "\n" + toothbrush_example3)
+#toothbrush_example1, toothbrush_example2, toothbrush_example3 = generate_ai("You are a video game character giving tips on how to brush your teeth effectively.", "Give the user 3 short tips in point form on how to brush their teeth effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
+#print(toothbrush_example1 + "\n" + toothbrush_example2 + "\n" + toothbrush_example3)
 
 #laundry_example1, laundry_example2, laundry_example3 = generate_ai("You are a video game character giving tips on how to do laundry effectively.", "Give the user 3 short tips in point form on how to do their laundry more effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
 #print(laundry_example1 + "\n" + laundry_example2 + "\n" + laundry_example3)
