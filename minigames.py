@@ -55,20 +55,12 @@ score = 0
 
 
 def brushingTeeth():
-
-
-    
-    
     screen.blit(bg, (0,0))
-
-    
     rect = germs.get_rect(center = pos1)
     rec2 = germs.get_rect(center = pos2)
     rec3 = germs.get_rect(center = pos3)
 
     while (score != 3 ):
-
-
         if(event.type == pygame.MOUSEMOTION):
             x, y = event.pos
             
