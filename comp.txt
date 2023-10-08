@@ -1,0 +1,35 @@
+**Project Title:** Hygiene Hero
+
+Dear Judges,
+
+We are honored to present our project, Hygiene Hero, conceived and created during Golden Hacks, as a demonstration of the power of technology in education. Hygiene Hero is not just a 2D game; it represents how we can utilize advanced AI models to merge entertainment with learning, going past the boundaries of traditional gaming.
+
+**I. The Game:**
+
+At its core, Hygiene Hero is a 2D infinite runner game where the main character embarks on a hygiene journey and must avoid germs along the way. Upon running into a germ, the player is prompted with a quiz. However, what distinguishes Hygiene Hero from a standard game is its integration of advanced AI models to generate helpful tips and information that are presented within these quizzes.
+
+**II. AI for Education:**
+
+Hygiene Hero is an example of harnessing AI for education, a vision that extends far beyond the idea of our game:
+
+1. **AI-Generated Facts:** We have incorporated advanced AI models into our program to generate factual content for the quizzes, focusing on vital personal hygiene topics such as brushing teeth, washing hands, and doing laundry. This ensures that players not only enjoy the gaming experience but also acquire essential knowledge about hygiene effortlessly.
+
+**III. The Web App:**
+
+We have also developed a companion web app using Streamlit, which serves as a platform for users to access and analyze their quiz results. This addition transforms Hygiene Hero into a useful educational tool.
+
+**IV. Why Hygiene Hero Matters:**
+
+Hygiene Hero goes beyond entertainment; it addresses a pressing need for accessible, engaging, and effective education. In a world where information is abundant, we believe that utilizing AI to distill and deliver knowledge through innovative and entertaining means like gaming is the future.
+
+**V. The Vision:**
+
+Our vision is to leverage technology's potential to make learning not just engaging but also deeply impactful. By blending gaming, AI, and education, we aim to inspire a younger generation of learners who are excited about improving their hygiene habits.
+
+**VI. Conclusion:**
+
+In conclusion, Hygiene Hero is more than just a hackathon project; it is a testament to our commitment to enhancing education through technology. We are excited to have been able to present our project to you today and we hope you like it!
+
+Sincerely,
+
+August, Zak, Ashley, Karmy
