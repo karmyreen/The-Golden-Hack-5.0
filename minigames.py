@@ -1,10 +1,18 @@
 from settings import *
 import pygame
 import random
+from ai import generate_ai
 
 from main import *
 
-
+def selectMinigame():
+    minigame_choice = random.randint(1,3)
+    if minigame_choice == 1:
+        brushingTeeth()
+    if minigame_choice == 2:
+        doingLaundry()
+    if minigame_choice == 3:
+        usingDeoderant()
 
 bg = pygame.image.load("visuals/scary mouth.png").convert_alpha()
 germs = pygame.image.load("visuals/germs.png").conver_alpha()
@@ -40,14 +48,25 @@ def brushingTeeth():
             pos2 = -100
         if( (pos3-40 <= x <= pos3) and ( pos3+40 <= y <= pos3 )):
             pos3 = -100
-       
-
-        
 
 
-   
+    #WHEN MINIGAME OVER
+    toothbrush_example1, toothbrush_example2, toothbrush_example3 = generate_ai("You are a video game character giving tips on how to brush your teeth effectively.", "Give the user 3 short tips in point form on how to brush their teeth effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
 
     
+def doingLaundry():
+    ## CODE HERE
+
+
+
+
+    #WHEN MINIGAME OVER
+    laundry_example1, laundry_example2, laundry_example3 = generate_ai("You are a video game character giving tips on how to do laundry effectively.", "Give the user 3 short tips in point form on how to do their laundry more effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
+
+def usingDeoderant():
+    ## CODE HERE
 
 
     
+    #WHEN MINIGAME OVER
+    deoderant_example1, deoderant_example2, deoderant_example3 = generate_ai("You are a video game character giving tips on how to use deoderant effectively.", "Give the user 3 short tips in point form on how to use deoderant effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
