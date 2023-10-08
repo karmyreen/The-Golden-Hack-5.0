@@ -2,7 +2,7 @@ from settings import *
 import pygame
 import random
 from ai import generate_ai
-from settings import *
+
 from main import *
 
 # Define the minigames
@@ -44,9 +44,9 @@ germs = pygame.image.load("visuals/germs.png").conver_alpha()
 
 #pos = [(94,382), (202,383), (313, 287),(400,385),(80,256), (180,480), ( 280,485),(370,487),(430,443)]
 
-posOne = (94,382)
-posTwo = (313, 287)
-posThree = (180,480)
+pos1 = (94,382)
+pos2 = (313, 287)
+pos3 = (180,480)
 score = 0 
 
 
@@ -56,30 +56,25 @@ score = 0
 
 def brushingTeeth():
     #START GENERATING AI AT THE START SO IT IS DONE BY THE TIME THE MINIGAME ENDS
-    #toothbrush_example1, toothbrush_example2, toothbrush_example3 = generate_ai("You are a video game character giving tips on how to brush your teeth effectively.", "Give the user 3 short tips in point form on how to brush their teeth effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
-    WIDTH, HEIGHT
-    screen = pygame.display.set_mode((WIDTH,HEIGHT))
+    toothbrush_example1, toothbrush_example2, toothbrush_example3 = generate_ai("You are a video game character giving tips on how to brush your teeth effectively.", "Give the user 3 short tips in point form on how to brush their teeth effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
     screen.blit(bg, (0,0))
+    rect = germs.get_rect(center = pos1)
+    rec2 = germs.get_rect(center = pos2)
+    rec3 = germs.get_rect(center = pos3)
 
-    rect = germs.get_rect(center = posOne)
-    rec2 = germs.get_rect(center = posTwo)
-    rec3 = germs.get_rect(center = posThree)
-
-    while (score < 3 and score > -1):
-        for event in pygame.event.get():
-
-            if(event.type == pygame.MOUSEMOTION):
-                x, y = event.pos
-                
-                if( (posOne-40 <= x <= posOne) and ( posOne+40 <= y <= posOne )):
-                    posOne = -100
-                    score += 1 
-                if( (posTwo-40 <= x <= posTwo) and ( posTwo+40 <= y <= posTwo )):
-                    posTwo = -100
-                    score += 1 
-                if( (posThree-40 <= x <= posThree) and ( posThree+40 <= y <= posThree )):
-                    posThree = -100
-                    score += 1 
+    while (score != 3 ):
+        if(event.type == pygame.MOUSEMOTION):
+            x, y = event.pos
+            
+            if( (pos1-40 <= x <= pos1) and ( pos1+40 <= y <= pos1 )):
+                pos1 = -100
+                score += 1 
+            if( (pos2-40 <= x <= pos2) and ( pos2+40 <= y <= pos2 )):
+                pos2 = -100
+                score += 1 
+            if( (pos3-40 <= x <= pos3) and ( pos3+40 <= y <= pos3 )):
+                pos3 = -100
+                score += 1 
 
 
     
