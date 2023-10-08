@@ -13,6 +13,7 @@ screen = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_caption("Hygiene Hero")
 clock = pygame.time.Clock()
 game_state = "title"  
+curr_time = 0
 #defining the background
 def import_assets():
     global title_screen
@@ -22,6 +23,7 @@ def import_assets():
 
 
 import_assets()
+start_time = 0
 
 runner = pygame.sprite.GroupSingle()
 runner.add(Runner())
@@ -48,7 +50,8 @@ while True:
         
         if game_state == "title":
             if keys[pygame.K_SPACE]:
-                game_active = "running"
+                game_state = "running"
+                start_time = int((pygame.time.get_ticks()/100))
 
     if game_state == "running":
         for i in range(0,3):
@@ -64,11 +67,15 @@ while True:
         germs_monsters.draw(screen)
         germs_monsters.update()
 
+        curr_time = int((pygame.time.get_ticks()/100) - start_time) 
+        
+        print(curr_time)
         if pygame.sprite.spritecollide(runner.sprite,germs_monsters,False):
             game_state = "quiz"
 
             
     if game_state == "title":
+        
         screen.blit(title_screen,(0,0))
 
     if game_state == "quiz":
