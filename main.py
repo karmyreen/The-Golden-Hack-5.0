@@ -64,7 +64,20 @@ while True:
 
 
     if game_state == "quiz":
-        screen.fill((0,0,255))
+        #screen.fill((0,0,255))
+        # Define the font and font size to use for the variable
+        FONT_SIZE = 24
+        font = pygame.font.SysFont(None, FONT_SIZE)
+
+        # Define the example variable
+        example_variable = "Hello, world!"
+
+        # Render the example variable as a Pygame surface
+        example_surface = font.render(example_variable, True, (255, 255, 255))
+
+        # Blit the example surface onto the screen
+        screen.blit(example_surface, (50, 50))
+        
 
     pygame.display.flip()
     pygame.display.update()
