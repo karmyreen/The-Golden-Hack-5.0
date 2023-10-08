@@ -34,10 +34,11 @@ class Runner(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(center = self.pos)
 
     def input(self):
+
         keys = pygame.key.get_pressed()
 
         if not self.key_pressed:
-            if keys[pygame.K_a] or keys[pygame.K_LEFT]:
+            if (keys[pygame.K_a] or keys[pygame.K_LEFT]):
                 if self.pos == (250,750):
                     self.pos = (84,750)
 
@@ -60,6 +61,11 @@ class Runner(pygame.sprite.Sprite):
                     self.pos = (250,750)
 
                 self.key_pressed = True
+        
+        if self.key_pressed:
+            if not (keys[pygame.K_a] or keys[pygame.K_LEFT] or keys[pygame.K_d] or keys[pygame.K_RIGHT]):
+                self.key_pressed = False
+            
 
         
     def update(self):

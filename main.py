@@ -20,16 +20,27 @@ import_assets()
 runner = pygame.sprite.GroupSingle()
 runner.add(Runner())
 
-while True:
+scroll = 0
 
-    screen.blit(background,(0,0))
+while True:
+    screen.blit(background,(0,0))    
 
     for event in pygame.event.get():
         keys = pygame.key.get_pressed()
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+
+    for i in range(0,3):
+        screen.blit(background,(0,i * -835 + scroll))
+
+    scroll += 10
+    if scroll > 835:
+        scroll = 0
+
     runner.draw(screen)
     runner.update()
+
+    pygame.display.flip()
     pygame.display.update()
     clock.tick(60)
