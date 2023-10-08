@@ -4,13 +4,6 @@ from ai import generate_ai
 import pygame
 from loader import read_settings
 
-# Initialize Pygame
-pygame.init()
-
-# Set up the Pygame window
-WIDTH, HEIGHT, FPS = read_settings()
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Quiz")
 
 # Define the font and font size to use for the tips
 FONT_SIZE = 24
@@ -28,7 +21,7 @@ def draw_tip(tip, x, y, color):
     # Draw the tip on the screen
     screen.blit(tip_surface, (x, y))
 
-def quiz():
+def quiz_func():
     # get a random toothbrush tip, laundry tip, and deoderant tip for a total of 3 tips
     toothbrush_tips = [toothbrush_example1, toothbrush_example2, toothbrush_example3]
     laundry_tips = [laundry_example1, laundry_example2, laundry_example3]
@@ -41,17 +34,15 @@ def quiz():
     false_laundry_tip = generate_ai("You are a video game character giving obviously false tips on how to do laundry effectively.", "Give the user 3 short obviously false tips in point form on how to do their laundry more effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
     false_deoderant_tip = generate_ai("You are a video game character giving obviously false tips on how to use deoderant effectively.", "Give the user 3 short obviously false tips in point form on how to use deoderant more effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
 
-    #NEED TO EXPAND WITH A WAY FOR THE USER TO CHOOSE THE CORRECT QUESTIONS AND SUBMIT THEIR ANSWERS
-
-    #CHECK HOW MANY OF THE QUESTIONS ARE CORRECT AND RETURN A SCORE
     # Combine the tips into a single list
     tips = [random_toothbrush_tip] + [random_laundry_tip] + [random_deoderant_tip] + false_toothbrush_tip.split("\\n") + false_laundry_tip.split("\\n") + false_deoderant_tip.split("\\n")
     
     # Shuffle the tips
     random.shuffle(tips)
     
-    # Keep track of the user's selections
+    # Keep track of the user's selections and score
     selected_tips = []
+    score = 0
     
     # Draw the tips on the screen
     x = 50
@@ -65,8 +56,8 @@ def quiz():
     
     # Update the Pygame display
     pygame.display.update()
-
-        # Wait for the user to make selections
+    
+    # Wait for the user to make selections
     while len(selected_tips) < 3:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -86,11 +77,16 @@ def quiz():
                         if tip not in selected_tips:
                             selected_tips.append(tip)
     
-    # Print the selected tips
-    print(selected_tips)
+    # Check the user's score
+    for selected_tip in selected_tips:
+        if selected_tip in [random_toothbrush_tip, random_laundry_tip, random_deoderant_tip]:
+            score += 1
+    
+    # Print the user's score
+    print(f"Score: {score}/3")
 
 # Run the quiz
-quiz()
+quiz_func()
 
 # Quit Pygame
 pygame.quit()
