@@ -3,7 +3,7 @@ from loader import *
 from runner import Runner
 from enemies import Germs
 from random import randint, choice
-from quiz import random_toothbrush_tip, random_laundry_tip, random_handwashing_tip, random_false_toothbrush_tip, random_false_laundry_tip, random_false_handwashing_tip
+#from quiz import random_toothbrush_tip, random_laundry_tip, random_handwashing_tip, random_false_toothbrush_tip, random_false_laundry_tip, random_false_handwashing_tip
 
 WIDTH, HEIGHT, FPS = read_settings()
 
@@ -12,12 +12,15 @@ pygame.init()
 screen = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_caption("Hygiene Hero")
 clock = pygame.time.Clock()
-game_state = "title"
+game_state = "title"  
 #defining the background
 def import_assets():
+    global title_screen
     global background
     background = pygame.image.load("visuals/background.png").convert_alpha()
-    
+    title_screen = pygame.image.load("visuals/hygienehero_title.png").convert_alpha()
+
+
 import_assets()
 
 runner = pygame.sprite.GroupSingle()
@@ -42,6 +45,10 @@ while True:
         if game_state == "running":
             if event.type == timer:
                 germs_monsters.add(Germs(choice(["yellow","yellow","red"])))
+        
+        if game_state == "title":
+            if keys[pygame.K_SPACE]:
+                game_active = "running"
 
     if game_state == "running":
         for i in range(0,3):
@@ -61,7 +68,8 @@ while True:
             game_state = "quiz"
 
             
-
+    if game_state == "title":
+        screen.blit(title_screen,(0,0))
 
     if game_state == "quiz":
         #screen.fill((0,0,255))
