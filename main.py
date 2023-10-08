@@ -37,9 +37,37 @@ pygame.time.set_timer(timer,900)
 
 scroll = 0
 
-#toothbrush_example1, toothbrush_example2, toothbrush_example3 = generate_ai("You are a video game character giving tips on how to brush your teeth effectively.", "Give the user 3 short tips in point form on how to brush their teeth effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
-toothbrush_example1, toothbrush_example2, toothbrush_example3 = generate_ai("You are a video game character giving tips on how to brush your teeth effectively.", "Give the user 3 short tips in point form on how to brush their teeth effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
-false_toothbrush_tip1, false_toothbrush_tip2, false_toothbrush_tip3 = generate_ai("You are a video game character giving obviously false tips on how to brush their teeth effectively.", "Give the user 3 short obviously false tips in point form on how to brush their teeth more effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
+hygiene_type_li = ["toothbrush","handwashing","laundry"]
+hygiene_type = choice(hygiene_type_li)
+
+def prompt_question():
+    if hygiene_type == "toothbrush":
+        if randint(0,1):   #true question
+            question, _,_ = generate_ai("You are a video game character giving tips on how to brush your teeth effectively.", "Give the user 3 short tips in point form on how to brush their teeth effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
+            answer = True
+        else:
+            question, _,_ = generate_ai("You are a video game character giving obviously false tips on how to brush their teeth effectively.", "Give the user 3 short obviously false tips in point form on how to brush their teeth more effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
+            answer = False
+
+    elif hygiene_type == "handwashing":
+        if randint(0,1):
+            question, _,_ = generate_ai("You are a video game character giving tips on how to wash hands effectively.", "Give the user 3 short tips in point form on how to wash hands effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
+            answer = True
+        else:
+            question, _,_ = generate_ai("You are a video game character giving obviously false tips on how to wash hands effectively.", "Give the user 3 short obviously false tips in point form on how to wash hands more effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
+            answer = False
+
+    elif hygiene_type == "laundry":
+        if randint(0,1):
+            question, _,_ = generate_ai("You are a video game character giving tips on how to do laundry effectively.", "Give the user 3 short tips in point form on how to do their laundry more effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
+            answer = True
+        else:
+            question, _,_ = generate_ai("You are a video game character giving obviously false tips on how to do laundry effectively.", "Give the user 3 short obviously false tips in point form on how to do their laundry more effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
+            answer = False
+    
+    return question, answer
+
+question, answer = prompt_question()
 
 while True:
     screen.blit(background,(0,0))
@@ -68,7 +96,7 @@ while True:
             scroll = 0
 
         runner.draw(screen)
-        runner.update()
+        runner.update() 
 
         germs_monsters.draw(screen)
         germs_monsters.update()
@@ -93,13 +121,14 @@ while True:
         font = pygame.font.SysFont(None, FONT_SIZE)
 
         # Define the example variable
-        example_variable = "Hello, world!"
+        
 
         # Render the example variable as a Pygame surface
-        example_surface = font.render(example_variable, True, (255, 255, 255))
+        surface = font.render(question, True, (0, 0, 0),(255,255,255))
 
         # Blit the example surface onto the screen
-        screen.blit(example_surface, (50, 50))
+        screen.blit(surface, (0, 250
+                              ))
         
 
     pygame.display.flip()
