@@ -15,4 +15,6 @@ def quiz():
     false_laundry_tip = generate_ai("You are a video game character giving obviously false tips on how to do laundry effectively.", "Give the user 3 short obviously false tips in point form on how to do their laundry more effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
     false_deoderant_tip = generate_ai("You are a video game character giving obviously false tips on how to use deoderant effectively.", "Give the user 3 short obviously false tips in point form on how to use deoderant more effectively. Each tip should only be 10-15 words long. Don't include backslash n for new lines in the answer.")
 
-    #NEED TO EXPAND WITH A WAY FOR THE USER TO CHOOSE THE CORRECT QUESTIONS
+    #NEED TO EXPAND WITH A WAY FOR THE USER TO CHOOSE THE CORRECT QUESTIONS AND SUBMIT THEIR ANSWERS
+
+    #CHECK HOW MANY OF THE QUESTIONS ARE CORRECT AND RETURN A SCORE
